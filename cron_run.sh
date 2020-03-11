@@ -1,8 +1,9 @@
+#!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 cd "$DIR"
 
-Rscript R/run_analysis.R
+/usr/local/bin/R < R/run_analysis.R --no-save
 
 git add predictions/predictions.csv
 git commit -m "updated prediction"
