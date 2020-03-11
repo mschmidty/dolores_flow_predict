@@ -120,6 +120,6 @@ rf_model<-readRDS(here::here("model/rf_model.rds"))
 test_data%>%
   mutate(prediction = stats::predict(rf_model, .),
          date = Sys.Date())%>%
-  write_csv(here::here("predictions.csv"), append = TRUE)
+  write_csv(here::here("predictions/predictions.csv"), append = TRUE)
 
 

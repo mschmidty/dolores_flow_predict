@@ -1,0 +1,1 @@
+A cron job to run an R script on my computer and push the results to the GitHub. 
