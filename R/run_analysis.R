@@ -87,7 +87,7 @@ bor_data<-grabBOR.data(site_id = "MPHC2000",
   select(date, res_volume)
 
 res_vol<-bor_data%>%
-  filter(month(date) %in% c(01, 02))%>%
+  filter(month(date) %in% c(01, 02, 03))%>%
   group_by(year(date))%>%
   summarize(min_vol = min(res_volume, na.rm = T))%>%
   ungroup()%>%
