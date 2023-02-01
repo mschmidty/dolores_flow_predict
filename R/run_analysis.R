@@ -9,6 +9,7 @@ library(here)
 dolores_site_ids<-c(465, 586, 589, 739)
 
 get_snotl_data<-function(site_id){
+  print(site_id)
   grabNRCS.data(network = "SNTL",
                 site_id = site_id,
                 timescale = "daily",
