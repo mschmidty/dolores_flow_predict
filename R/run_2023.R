@@ -1,9 +1,3 @@
-options(
-  max.print=100,
-  vsc.use_httpgd=TRUE,
-  device='quartz'
-)
-
 library(snotelr)
 library(tidyverse)
 library(lubridate)
