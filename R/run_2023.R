@@ -9,7 +9,7 @@ library(extrafont)
 loadfonts(quiet=TRUE)
 
 theme_set(theme_minimal(
-  base_family="Inter Medium",
+  base_family="Chivo Regular",
   base_size=8
 ))
 
@@ -102,15 +102,15 @@ prediction_plot<-predict_this_year%>%
     x="Date of Prediction"
   )+
   theme(
-    plot.title=element_text(family="SourceSerifPro-Black", hjust=0.5, vjust=3, size=13),
+    plot.title=element_text(family="Chivo Black", hjust=0.5, vjust=3, size=13),
     plot.subtitle=element_text(size=6, color="#555555", hjust=0.5, vjust=5),
     plot.caption=element_text(size=6, color="#555555", vjust=-13),
     plot.margin=unit(c(30,30,30,30), 'pt'),
-    axis.title=element_text(size=6, family="Inter Bold"),
+    axis.title=element_text(size=6, family="Chivo Bold"),
     axis.title.x=element_text(vjust=-2),
     axis.title.y=element_text(angle=90, vjust=-0.5),
     axis.text=element_text(color="#888888"),
     panel.grid.minor=element_blank()
   )
   
-ggsave("output/current_prediction.jpg", plot=prediction_plot, height=1500, width=2300, units="px")
+ggsave("output/current_prediction.jpg", plot=prediction_plot, dpi=300, height=1500, width=2300, units="px")
