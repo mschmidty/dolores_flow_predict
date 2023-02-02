@@ -1,3 +1,4 @@
+install.packages("xgboost")
 library(snotelr)
 library(tidyverse)
 library(lubridate)
@@ -83,9 +84,13 @@ this_year<-data_all%>%
 
 model<-readRDS("model/xgboost_2023.rds")
 
-prediction_plot<-this_year%>%
+predict_this_year<-this_year%>%
   filter(date>=as.Date("2022-12-01"))%>%
-  bind_cols(predict(extract_workflow(model), .))%>%
+  bind_cols(predict(extract_workflow(model), .))
+
+write_csv(predict_this_year, "output/current_predictions.csv")
+
+prediction_plot<-predict_this_year%>%
   ggplot(aes(date, .pred))+
   geom_smooth()+
   geom_point(size=2, alpha=0.6, color="blue")+
