@@ -17,3 +17,14 @@ jobs:
         with:
           r-version: '4.2.2'
       - uses: r-lib/actions/setup-renv@v2
+      - name: Run Model
+        run: |
+          source("R/run_2023.R")
+        shell: Rscript {0}
+      - name: Commit Files
+        run: |
+          git config --local user.email "mschmidty@gmail.com"
+          git config --local user.name "Michael Schmidt"
+          git add --all
+          git commit -am "model run"
+          git push 
