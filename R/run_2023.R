@@ -1,3 +1,4 @@
+library(xgboost)
 library(snotelr)
 library(tidyverse)
 library(lubridate)
