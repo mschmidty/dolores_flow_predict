@@ -1,4 +1,3 @@
-install.packages("xgboost")
 library(snotelr)
 library(tidyverse)
 library(lubridate)
