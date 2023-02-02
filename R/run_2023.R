@@ -92,8 +92,8 @@ write_csv(predict_this_year, "output/current_predictions.csv")
 
 prediction_plot<-predict_this_year%>%
   ggplot(aes(date, .pred))+
-  geom_smooth()+
-  geom_point(size=2, alpha=0.6, color="blue")+
+  geom_smooth(color="#27AE60", fill="#D5F5E3")+
+  geom_point(size=1.5, color="#27AE60")+
   labs(
     title="Predicted Days of Raftable Runoff on the Dolores River Below McPhee Dam",
     subtitle="Winter 2022/2023 - Data from NRCS SNOTEL, Bureau of Reclamation, and the US Geological Survey.",
@@ -102,10 +102,15 @@ prediction_plot<-predict_this_year%>%
     x="Date of Prediction"
   )+
   theme(
-    plot.title=element_text(family="Inter ExtraBold", hjust=0.5),
-    plot.subtitle=element_text(size=6, color="#555555", hjust=0.5),
-    plot.caption=element_text(size=6, color="#555555"),
-    plot.margin=unit(c(20,20,20,20), 'pt')
+    plot.title=element_text(family="SourceSerifPro-Black", hjust=0.5, vjust=3, size=13),
+    plot.subtitle=element_text(size=6, color="#555555", hjust=0.5, vjust=5),
+    plot.caption=element_text(size=6, color="#555555", vjust=-13),
+    plot.margin=unit(c(30,30,30,30), 'pt'),
+    axis.title=element_text(size=6, family="Inter Bold"),
+    axis.title.x=element_text(vjust=-2),
+    axis.title.y=element_text(angle=90, vjust=-0.5),
+    axis.text=element_text(color="#888888"),
+    panel.grid.minor=element_blank()
   )
   
-ggsave("output/current_prediction.jpg", plot=prediction_plot, height=1200, width=2000, units="px")
+ggsave("output/current_prediction.jpg", plot=prediction_plot, height=1500, width=2300, units="px")
