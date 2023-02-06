@@ -1,11 +1,11 @@
 name: Run Dolores Rafting Model
 run-name: Model Run
-on:
-  push:
-    branches:
-        - master
-  # schedule:
-  #   - cron: '0 5 * * *'
+# on:
+#   push:
+#     branches:
+#         - master
+  schedule:
+    - cron: '0 0 */2 * *'
 jobs:
   build:
     runs-on: ubuntu-latest
