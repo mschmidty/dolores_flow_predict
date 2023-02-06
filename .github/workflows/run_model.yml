@@ -25,7 +25,7 @@ jobs:
         run: |
           git config --local user.email "mschmidty@gmail.com"
           git config --local user.name "Michael Schmidt"
-          git add "output/current_prediction.jpg"
-          git add "output/current_prediction.csv"
+          git status
+          git add --all
           git commit -am "model run"
           git push 
