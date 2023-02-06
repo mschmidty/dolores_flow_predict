@@ -1,11 +1,11 @@
 name: Run Dolores Rafting Model
 run-name: Model Run
 on:
-  # push:
-  #   branches:
-  #       - master
-  schedule:
-    - cron: '0 5 * * *'
+  push:
+    branches:
+        - master
+  # schedule:
+  #   - cron: '0 5 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,6 +25,7 @@ jobs:
         run: |
           git config --local user.email "mschmidty@gmail.com"
           git config --local user.name "Michael Schmidt"
-          git add --all
+          git add "output/current_prediction.jpg"
+          git add "output/current_prediction.csv"
           git commit -am "model run"
           git push 
