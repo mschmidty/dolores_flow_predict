@@ -6,10 +6,11 @@ library(RNRCS)
 library(tidymodels)
 library(MetBrewer)
 library(extrafont)
+library(ggtext)
 loadfonts(quiet=TRUE)
 
 theme_set(theme_minimal(
-  base_family="Chivo Regular",
+  base_family="Chivo",
   base_size=8
 ))
 
@@ -96,7 +97,7 @@ prediction_plot<-predict_this_year%>%
   geom_point(size=1.5, color="#27AE60")+
   labs(
     title="Predicted Days of Raftable Runoff on the Dolores River Below McPhee Dam",
-    subtitle="Winter 2022/2023 - Data from NRCS SNOTEL, Bureau of Reclamation, and the US Geological Survey.",
+    subtitle=paste0("Winter 2022/2023 | Model Run On: <span style='color:#27AE60; font-weight:bold;'>", format(Sys.Date(), format='%B %d, %Y'), "</span> | Data from NRCS SNOTEL, Bureau of Reclamation, and the US Geological Survey."),
     caption="Model: by Mike Schmidt (schmidtynotes.com) | Mastodon: @mschmidty@fosstodon.org",
     y="Predicted Days",
     x="Date of Prediction"
@@ -104,7 +105,7 @@ prediction_plot<-predict_this_year%>%
   theme(
     plot.background=element_rect(fill="#FFFFFF", color="#FFFFFF"),
     plot.title=element_text(family="Chivo Black", hjust=0.5, vjust=3, size=13),
-    plot.subtitle=element_text(size=6, color="#555555", hjust=0.5, vjust=5),
+    plot.subtitle=element_markdown(size=6, color="#555555", hjust=0.5, vjust=5),
     plot.caption=element_text(size=6, color="#555555", vjust=-13),
     plot.margin=unit(c(30,30,30,30), 'pt'),
     axis.title=element_text(size=6, family="Chivo Bold"),
