@@ -14,6 +14,8 @@ theme_set(theme_minimal(
   base_size=8
 ))
 
+set.seed(1234)
+
 dolores_site_ids<-c(465, 586, 589, 739)
 
 get_snotel_data<-function(site_id){
