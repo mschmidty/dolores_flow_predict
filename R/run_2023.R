@@ -85,7 +85,7 @@ data_all<-vars_all%>%
 this_year<-data_all%>%
   filter(date>"2022-06-01")
 
-model<-readRDS("model/xgboost_2023.rds")
+model<-readRDS("model/xgboost_2023_v2.rds")
 
 predict_this_year<-this_year%>%
   filter(date>=as.Date("2022-12-01"))%>%

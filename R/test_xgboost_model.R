@@ -15,7 +15,7 @@ theme_update(
   plot.margin = margin(1,1,1.5,1.2, "cm")
 )
 
-model<-readRDS("model/xgboost_2023.rds")
+model<-readRDS("model/xgboost_2023_v2.rds")
 
 dolores_site_ids<-c(465, 586, 589, 739)
 
