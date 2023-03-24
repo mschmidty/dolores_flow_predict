@@ -74,8 +74,11 @@ get_data_for_predict<-function(){
     ungroup()
 
   data_all<-vars_all%>%
-    mutate(year=year(date))%>%
-    left_join(predicted_variable, by="year")%>%
+    mutate(
+      year=year(date),
+      winter_year=if_else(month(date)<7, year, year+1)
+    )%>%
+    left_join(predicted_variable, by=c("winter_year"="year"))%>%
     mutate(total = site_id_465+site_id_586+site_id_589+site_id_739)%>%
     filter(total!=0)%>%
     select(-total)%>%
