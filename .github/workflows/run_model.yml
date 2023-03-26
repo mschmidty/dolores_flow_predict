@@ -1,9 +1,9 @@
 name: Run Dolores Rafting Model
 run-name: Model Run
 on:
-  # push:
-  #   branches:
-  #       - master
+  push:
+    branches:
+        - master
   schedule:
     - cron: '0 8 */2 * *'
 jobs:
