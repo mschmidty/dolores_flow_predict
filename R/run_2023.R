@@ -119,3 +119,29 @@ prediction_plot<-predict_this_year%>%
   )
   
 ggsave("output/current_prediction.jpg", plot=prediction_plot, dpi=300, height=1500, width=2300, units="px")
+
+
+## Get this years flow data
+flow_data<-read_tsv(url, skip = 35)%>%
+  select(2:5)%>%
+  rename(site_id = 1, date = 2, flow=3, code = 4)%>%
+  mutate(
+    site_id = ifelse(site_id == "09166500", "Dolores", "Bedrock"), 
+    flow=as.numeric(flow)
+  )%>%
+  drop_na()
+
+write_csv(flow_data, "output/flow_data_all.csv")
+
+predicted_variable<-flow_data%>%
+  filter(site_id=="Bedrock")%>%
+  mutate(
+    raftable = ifelse(flow>800, 1, 0),
+    year = year(date)
+  )%>%
+  filter(month(date) %in% c(3:7))%>%
+  group_by(year)%>%
+  summarize(raftable_release_days = sum(raftable))%>%
+  ungroup()
+
+write_csv(predicted_variable, "output/number_of_flow_days_per_year_at_bedrock.csv")
