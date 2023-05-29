@@ -120,6 +120,7 @@ prediction_plot<-predict_this_year%>%
   
 ggsave("output/current_prediction.jpg", plot=prediction_plot, dpi=300, height=1500, width=2300, units="px")
 
+url<-paste0("https://waterservices.usgs.gov/nwis/dv/?format=rdb&sites=09169500,%2009166500&startDT=1985-02-01&endDT=", Sys.Date(), "&statCd=00003&siteType=ST&siteStatus=all")
 
 ## Get this years flow data
 flow_data<-read_tsv(url, skip = 35)%>%
