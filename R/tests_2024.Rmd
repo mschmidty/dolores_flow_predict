@@ -1,0 +1,23 @@
+---
+layout: post 
+title: 'Tests for 2024 Dolores River flow predict'
+author: 'Michael Schmidt'
+date: '`r Sys.Date()`'
+output:
+  md_document:
+    variant: commonmark
+    preserve_yaml: TRUE
+    df_print: tibble
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  class.output="r",
+  message = FALSE,
+  warning=FALSE
+)
+```
+
+```{r}
+library(tidyverse)
+```
